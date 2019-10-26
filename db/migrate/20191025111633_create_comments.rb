@@ -6,7 +6,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.references :movie, foreign_key: true
       t.references :user,  foreign_key: true
 
-      t.timestamp
+      t.timestamps
     end
   end
 end

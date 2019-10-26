@@ -1,0 +1,11 @@
+%h2.text-center Top commenters
+%table{border:  1, align: "center"}
+  %body
+    %tr
+      %th Commenter name
+      %th Number of comments
+    - @top_commenters.each do |top_commenter|
+      %tr
+        %td= top_commenter.name
+        %td= top_commenter.comments.count
+        %br/

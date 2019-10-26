@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     end
   end
   resources :comments, only: [:create, :destroy]
+  get 'top_commenters', to: 'comments#weekly_top_commenters'
 end
