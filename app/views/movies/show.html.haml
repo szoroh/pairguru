@@ -3,3 +3,12 @@
   = @movie.description
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+
+  %h3 Comments
+  = render 'layouts/movie_comment_form'
+  - @movie.comments.each do |comment|
+    .comment
+      %h4= comment.title
+      %h5= comment.body
+      %label{:for => 'comment.user.name'}> Created by:
+      =" #{comment.user.name}"
