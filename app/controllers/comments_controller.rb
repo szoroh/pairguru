@@ -23,6 +23,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def weekly_top_commenters
+    @top_commenters = WeeklyTopCommenters.new.call
+  end
+
   private
 
   def comment_params
