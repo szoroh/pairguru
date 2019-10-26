@@ -12,6 +12,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+
+    if current_user == comment.user
+      comment.destroy
+      redirect_back(fallback_location: movies_path, notice: 'Comment successfully deleted.')
+    else
+      redirect_back(fallback_location: movies_path, alert: 'You can only delete your own comment.')
+    end
+  end
+
   private
 
   def comment_params
