@@ -1,0 +1,5 @@
+= form_for :comment, url: comments_path do |field|
+  = field.text_field :title, class: 'form-control', autofocus: true, placeholder: 'Title'
+  = field.text_area :body, rows: 6, class: 'form-control', placeholder: 'Comment'
+  = field.hidden_field :movie_id, value: @movie.id
+  = field.submit 'Add comment', class: 'btn btn-primary'
